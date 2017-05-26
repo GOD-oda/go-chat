@@ -29,7 +29,7 @@ func main() {
 
 	// make a new chat room.
 	r := newRoom()
-	http.Handle("/", &templateHandler{filename: "chat.html"})
+	http.Handle("/chat", MustAuth(&templateHandler{filename: "chat.html"}))
 	http.Handle("/room", r)
 
 	// run a chat room.
